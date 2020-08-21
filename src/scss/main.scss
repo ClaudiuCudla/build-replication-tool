@@ -65,6 +65,16 @@ body {
     }
     .body {
       padding-bottom: 30px;
+
+      label {
+        width: 80%;
+        padding: 4px;
+        cursor: pointer;
+
+        &:hover {
+          background: #eee;
+        }
+      }
     }
     .line {
       position: absolute;
