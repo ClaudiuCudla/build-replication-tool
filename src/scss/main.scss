@@ -1,100 +1,278 @@
-// Demo Styles
-input[type=radio]:focus {
+$primary-gray: #dde7ea;
+$secondary-grey: #3c4042;
+$tertiary-grey: #60777d;
+
+$font-primary: 'Alata', sans-serif;
+$font-highlight: 'Alfa Slab One', cursive;
+
+$font-size-content: 14px;
+$font-size-title: 22px; 
+$font-size-subtitle: 18px; 
+
+body {
+  background: $primary-gray;
+  font-family: $font-primary;
+  
+  h2, p, * {
+    color: $secondary-grey;
+  }
+}
+
+.accordion-item {
+  background: white;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 0 0 1px #ececec;
+}
+
+.step {
+  background-color: white;
+  box-shadow: 0 0 0 1px rgba(236,236,236,1);
+  opacity: 1;
+  transition: box-shadow .2s, opacity .4s;
+  border-radius: 5px; 
+  margin-bottom: 20px;
+  padding: 25px 30px 10px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .11);
+  }
+}
+
+.title {
+  font-size: $font-size-title;
+}
+
+.subtitle {
+  font-size: $font-size-subtitle;
+}
+
+.question {
+  margin-top: 30px;
+}
+
+.questions-container {
+  padding: 0 60px 30px;
+  counter-reset: counter;
+}
+
+.question-title::before {
+  counter-increment: counter;
+  content: counter(counter, lower-latin) ". ";
+}
+
+/*
+=====
+CORE STYLES
+=====
+*/
+
+.toggle{
+  --uiToggleSize: var(--toggleSize, 1.25rem);
+  --uiToggleBorderWidth: var(--toggleBorderWidth, 2px);
+  --uiToggleColor: var(--toggleColor, #222);
+
+  display: var(--toggleDisplay, inline-flex);
+  position: relative;
+  outline: none;
+  flex-flow: column;
+}
+
+.toggle__input {
+  /*
+    The pattern by Sara Soueidan https://www.sarasoueidan.com/blog/inclusively-hiding-and-styling-checkboxes-and-radio-buttons/
+  */
+  width: var(--uiToggleSize);
+  height: var(--uiToggleSize);
+  opacity: 0;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
   outline: none;
 }
 
-body {
- background: #fff;
-  color:#333;
-  padding: 30px 0;
+/*
+ 1. Calculation of the gap for the custom checkbox
+*/
 
-  .heading {
-    text-align: center;
-    h1 {
-      font-size: 100px;
-    }
-  }
-  .content{
-    margin-top: 30px;
-    margin-bottom: 30px;
+.toggle__label {
+  display: inline-flex;
+  min-height: var(--uiToggleSize);
+  padding-left: calc(var(--uiToggleSize) + var(--toggleIndent, .4em));
+  align-items: center;
+  
+
+  &.title {
+    font-size: 24px;
+    flex-flow: column;
+    align-items: baseline;
   }
 }
 
-// Stepper styles
-.stepper {
-  padding-top: 30px;
-  padding-bottom: 30px;
+.toggle__input:not(:disabled) ~ .toggle__label {
+  cursor: pointer;
+}
 
-  .step {
-    position: relative;
-    min-height: 32px;
+.input-expand {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+}
 
-    & > div:last-child {
-      margin-left: 32px;
-      padding-left: 16px;
-    }
+.toggle__input:checked ~ .input-expand {
+  max-height: 500px;
+  transition: max-height 0.5s ease-in;
+}
 
-    .step-heading {
-      position: static;
-      height: 33px;
-      color: #111;
-      background: #eee;
-      //font-weight: bold;
-      border-radius: 10px;
-      //text-transform: uppercase;
-      padding-bottom: 20px;
-      margin-bottom: 10px;
-      cursor: pointer;
-      &.active .circle {
-        background: #E91E63;
-      }
-      .circle {
-        background: #aaa;
-        width: 32px;
-        height: 32px;
-        line-height: 32px;
-        border-radius: 16px;
-        position: relative;
-        color: #fff;
-        text-align: center;
-        float: left;
-        font-weight: bold;
-      }
-      .title {
-        line-height: 32px;
-        padding-left: 12px;
-        float: left;
-        font-size: 18px;
-      }
-    }
-    .body {
-      padding-bottom: 30px;
+/*
+1. Ems helps to calculate size of the checkbox
+*/
 
-      label {
-        width: 80%;
-        padding: 4px;
-        cursor: pointer;
+.toggle__label::before, 
+.toggle__label::after {
+  content: "";
+  box-sizing: border-box;  
+  width: 1em;
+  height: 1em;
+  font-size: var(--uiToggleSize); /* 1 */
 
-        &:hover {
-          background: #eee;
-        }
-      }
-    }
-    .line {
-      position: absolute;
-      border-left: 1px solid #fff;
-      left: 16px;
-      bottom: 0px;
-      top: 32px;
-    }
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 
-    .btn {
-      color: #fff !important;
+.toggle__label::before {
+  border: var(--uiToggleBorderWidth) solid var(--uiToggleColor);
+  z-index: 2;
+}
 
-      &.btn-bg {
-        background: #aaa;
-      }
-    }
+.toggle__input:not(:disabled) ~ .toggle__label::after {
+  background-color: var(--uiToggleColor);
+  opacity: 0;
+}
 
-  }
+.toggle__input:not(:disabled):checked ~ .toggle__label::after {
+  opacity: 1;
+}
+
+.toggle__text{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+/*
+The arrow size and position depends from sizes of square because I needed an arrow correct positioning from the top left corner of the element toggle
+
+1. Ems helps to calculate size and position of the arrow
+*/
+
+.toggle__input:not(:disabled) ~ .toggle__label .toggle__text::before {
+  content: "";
+  width: 0;
+  height: 0;
+  font-size: var(--uiToggleSize); /* 1 */
+
+  border-left-width: 0;
+  border-bottom-width: 0;
+  border-left-style: solid;
+  border-bottom-style: solid;
+  border-color: var(--toggleArrowColor, #fff);
+
+  position: absolute;
+  top: .5428em;
+  left: .25em;
+  z-index: 3;
+
+  transform-origin: left top;
+  transform: rotate(-40deg) skew(10deg);
+}
+
+.toggle__input:not(:disabled):checked ~ .toggle__label .toggle__text::before {
+  --uiToggleArrowWidth: var(--toggleArrowWidth, 2px);
+  
+  width: .4em;
+  height: .2em;
+  border-left-width: var(--uiToggleArrowWidth);
+  border-bottom-width: var(--uiToggleArrowWidth);
+}
+
+/*
+States
+*/
+
+/* disabled state */
+
+.toggle__input:disabled ~ .toggle__label {
+  opacity: var(--toggleOpacityDisabled, .24);
+  cursor: var(--toggleCursorDisabled, not-allowed);
+}
+
+/*
+=====
+PRESENTATION STYLES
+=====
+*/
+
+/* 
+The demo skin
+*/
+
+.toggle__label::before, 
+.toggle__label::after{
+  border-radius: var(--toggleBorderRadius, 2px);
+}
+
+/* 
+The animation of switching states
+*/
+
+.toggle__input:not(:disabled) ~ .toggle__label::before,
+.toggle__input:not(:disabled) ~ .toggle__label::after {
+  opacity: 1;
+  transform-origin: center center;
+  will-change: transform;
+  transition: transform .2s ease-out;
+}
+
+.toggle__input:not(:disabled) ~ .toggle__label::before {
+  transform: rotateY(0deg);
+  transition-delay: .2s;
+}
+
+.toggle__input:not(:disabled) ~ .toggle__label::after {
+  transform: rotateY(90deg);
+}
+
+.toggle__input:not(:disabled):checked ~ .toggle__label::before {
+  transform: rotateY(-90deg);
+  transition-delay: 0s;
+}
+
+.toggle__input:not(:disabled):checked ~ .toggle__label::after {
+  transform: rotateY(0deg);
+  transition-delay: .2s;
+}
+
+.toggle__text::before{
+  opacity: 0;
+}
+
+.toggle__input:not(:disabled):checked ~ .toggle__label .toggle__text::before {
+  opacity: 1;
+  transition: opacity .1s ease-out .3s, width .1s ease-out .5s, height .2s ease-out .3s;
+}
+
+/*
+=====
+SETTINGS
+=====
+*/
+
+.toggle {
+  --toggleColor:#315f50;
+  --toggleBackgroundColor: #9b59b6;
+  --toggleSize: 30px;
 }

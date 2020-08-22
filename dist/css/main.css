@@ -1,70 +1,215 @@
-input[type=radio]:focus {
+body {
+  background: #dde7ea;
+  font-family: "Alata", sans-serif; }
+  body h2, body p, body * {
+    color: #3c4042; }
+
+.accordion-item {
+  background: white;
+  border-radius: 5px;
+  padding: 15px;
+  box-shadow: 0 0 0 1px #ececec; }
+
+.step {
+  background-color: white;
+  box-shadow: 0 0 0 1px #ececec;
+  opacity: 1;
+  transition: box-shadow .2s, opacity .4s;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding: 25px 30px 10px;
+  cursor: pointer; }
+  .step:hover {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.11); }
+
+.title {
+  font-size: 22px; }
+
+.subtitle {
+  font-size: 18px; }
+
+.question {
+  margin-top: 30px; }
+
+.questions-container {
+  padding: 0 60px 30px;
+  counter-reset: counter; }
+
+.question-title::before {
+  counter-increment: counter;
+  content: counter(counter, lower-latin) ". "; }
+
+/*
+=====
+CORE STYLES
+=====
+*/
+.toggle {
+  --uiToggleSize: var(--toggleSize, 1.25rem);
+  --uiToggleBorderWidth: var(--toggleBorderWidth, 2px);
+  --uiToggleColor: var(--toggleColor, #222);
+  display: var(--toggleDisplay, inline-flex);
+  position: relative;
+  outline: none;
+  flex-flow: column; }
+
+.toggle__input {
+  /*
+    The pattern by Sara Soueidan https://www.sarasoueidan.com/blog/inclusively-hiding-and-styling-checkboxes-and-radio-buttons/
+  */
+  width: var(--uiToggleSize);
+  height: var(--uiToggleSize);
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
   outline: none; }
 
-body {
-  background: #fff;
-  color: #333;
-  padding: 30px 0; }
-  body .heading {
-    text-align: center; }
-    body .heading h1 {
-      font-size: 100px; }
-  body .content {
-    margin-top: 30px;
-    margin-bottom: 30px; }
+/*
+ 1. Calculation of the gap for the custom checkbox
+*/
+.toggle__label {
+  display: inline-flex;
+  min-height: var(--uiToggleSize);
+  padding-left: calc(var(--uiToggleSize) + var(--toggleIndent, .4em));
+  align-items: center; }
+  .toggle__label.title {
+    font-size: 24px;
+    flex-flow: column;
+    align-items: baseline; }
 
-.stepper {
-  padding-top: 30px;
-  padding-bottom: 30px; }
-  .stepper .step {
-    position: relative;
-    min-height: 32px; }
-    .stepper .step > div:last-child {
-      margin-left: 32px;
-      padding-left: 16px; }
-    .stepper .step .step-heading {
-      position: static;
-      height: 33px;
-      color: #111;
-      background: #eee;
-      border-radius: 10px;
-      padding-bottom: 20px;
-      margin-bottom: 10px;
-      cursor: pointer; }
-      .stepper .step .step-heading.active .circle {
-        background: #E91E63; }
-      .stepper .step .step-heading .circle {
-        background: #aaa;
-        width: 32px;
-        height: 32px;
-        line-height: 32px;
-        border-radius: 16px;
-        position: relative;
-        color: #fff;
-        text-align: center;
-        float: left;
-        font-weight: bold; }
-      .stepper .step .step-heading .title {
-        line-height: 32px;
-        padding-left: 12px;
-        float: left;
-        font-size: 18px; }
-    .stepper .step .body {
-      padding-bottom: 30px; }
-      .stepper .step .body label {
-        width: 80%;
-        padding: 4px;
-        cursor: pointer; }
-        .stepper .step .body label:hover {
-          background: #eee; }
-    .stepper .step .line {
-      position: absolute;
-      border-left: 1px solid #fff;
-      left: 16px;
-      bottom: 0px;
-      top: 32px; }
-    .stepper .step .btn {
-      color: #fff !important; }
-      .stepper .step .btn.btn-bg {
-        background: #aaa; }
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9zY3NzL21haW4uc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFDQTtFQUNFLGFBQWEsRUFBQTs7QUFHZjtFQUNDLGdCQUFnQjtFQUNmLFdBQVU7RUFDVixlQUFlLEVBQUE7RUFIakI7SUFNSSxrQkFBa0IsRUFBQTtJQU50QjtNQVFNLGdCQUFnQixFQUFBO0VBUnRCO0lBWUksZ0JBQWdCO0lBQ2hCLG1CQUFtQixFQUFBOztBQUt2QjtFQUNFLGlCQUFpQjtFQUNqQixvQkFBb0IsRUFBQTtFQUZ0QjtJQUtJLGtCQUFrQjtJQUNsQixnQkFBZ0IsRUFBQTtJQU5wQjtNQVNNLGlCQUFpQjtNQUNqQixrQkFBa0IsRUFBQTtJQVZ4QjtNQWNNLGdCQUFnQjtNQUNoQixZQUFZO01BQ1osV0FBVztNQUNYLGdCQUFnQjtNQUVoQixtQkFBbUI7TUFFbkIsb0JBQW9CO01BQ3BCLG1CQUFtQjtNQUNuQixlQUFlLEVBQUE7TUF2QnJCO1FBeUJRLG1CQUFtQixFQUFBO01BekIzQjtRQTRCUSxnQkFBZ0I7UUFDaEIsV0FBVztRQUNYLFlBQVk7UUFDWixpQkFBaUI7UUFDakIsbUJBQW1CO1FBQ25CLGtCQUFrQjtRQUNsQixXQUFXO1FBQ1gsa0JBQWtCO1FBQ2xCLFdBQVc7UUFDWCxpQkFBaUIsRUFBQTtNQXJDekI7UUF3Q1EsaUJBQWlCO1FBQ2pCLGtCQUFrQjtRQUNsQixXQUFXO1FBQ1gsZUFBZSxFQUFBO0lBM0N2QjtNQStDTSxvQkFBb0IsRUFBQTtNQS9DMUI7UUFrRFEsVUFBVTtRQUNWLFlBQVk7UUFDWixlQUFlLEVBQUE7UUFwRHZCO1VBdURVLGdCQUFnQixFQUFBO0lBdkQxQjtNQTRETSxrQkFBa0I7TUFDbEIsMkJBQTJCO01BQzNCLFVBQVU7TUFDVixXQUFXO01BQ1gsU0FBUyxFQUFBO0lBaEVmO01Bb0VNLHNCQUFzQixFQUFBO01BcEU1QjtRQXVFUSxnQkFBZ0IsRUFBQSIsImZpbGUiOiJtYWluLmNzcyJ9 */
+.toggle__input:not(:disabled) ~ .toggle__label {
+  cursor: pointer; }
+
+.input-expand {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out; }
+
+.toggle__input:checked ~ .input-expand {
+  max-height: 500px;
+  transition: max-height 0.5s ease-in; }
+
+/*
+1. Ems helps to calculate size of the checkbox
+*/
+.toggle__label::before,
+.toggle__label::after {
+  content: "";
+  box-sizing: border-box;
+  width: 1em;
+  height: 1em;
+  font-size: var(--uiToggleSize);
+  /* 1 */
+  position: absolute;
+  left: 0;
+  top: 0; }
+
+.toggle__label::before {
+  border: var(--uiToggleBorderWidth) solid var(--uiToggleColor);
+  z-index: 2; }
+
+.toggle__input:not(:disabled) ~ .toggle__label::after {
+  background-color: var(--uiToggleColor);
+  opacity: 0; }
+
+.toggle__input:not(:disabled):checked ~ .toggle__label::after {
+  opacity: 1; }
+
+.toggle__text {
+  margin-top: auto;
+  margin-bottom: auto; }
+
+/*
+The arrow size and position depends from sizes of square because I needed an arrow correct positioning from the top left corner of the element toggle
+
+1. Ems helps to calculate size and position of the arrow
+*/
+.toggle__input:not(:disabled) ~ .toggle__label .toggle__text::before {
+  content: "";
+  width: 0;
+  height: 0;
+  font-size: var(--uiToggleSize);
+  /* 1 */
+  border-left-width: 0;
+  border-bottom-width: 0;
+  border-left-style: solid;
+  border-bottom-style: solid;
+  border-color: var(--toggleArrowColor, #fff);
+  position: absolute;
+  top: .5428em;
+  left: .25em;
+  z-index: 3;
+  transform-origin: left top;
+  transform: rotate(-40deg) skew(10deg); }
+
+.toggle__input:not(:disabled):checked ~ .toggle__label .toggle__text::before {
+  --uiToggleArrowWidth: var(--toggleArrowWidth, 2px);
+  width: .4em;
+  height: .2em;
+  border-left-width: var(--uiToggleArrowWidth);
+  border-bottom-width: var(--uiToggleArrowWidth); }
+
+/*
+States
+*/
+/* disabled state */
+.toggle__input:disabled ~ .toggle__label {
+  opacity: var(--toggleOpacityDisabled, 0.24);
+  cursor: var(--toggleCursorDisabled, not-allowed); }
+
+/*
+=====
+PRESENTATION STYLES
+=====
+*/
+/* 
+The demo skin
+*/
+.toggle__label::before,
+.toggle__label::after {
+  border-radius: var(--toggleBorderRadius, 2px); }
+
+/* 
+The animation of switching states
+*/
+.toggle__input:not(:disabled) ~ .toggle__label::before,
+.toggle__input:not(:disabled) ~ .toggle__label::after {
+  opacity: 1;
+  transform-origin: center center;
+  will-change: transform;
+  transition: transform .2s ease-out; }
+
+.toggle__input:not(:disabled) ~ .toggle__label::before {
+  transform: rotateY(0deg);
+  transition-delay: .2s; }
+
+.toggle__input:not(:disabled) ~ .toggle__label::after {
+  transform: rotateY(90deg); }
+
+.toggle__input:not(:disabled):checked ~ .toggle__label::before {
+  transform: rotateY(-90deg);
+  transition-delay: 0s; }
+
+.toggle__input:not(:disabled):checked ~ .toggle__label::after {
+  transform: rotateY(0deg);
+  transition-delay: .2s; }
+
+.toggle__text::before {
+  opacity: 0; }
+
+.toggle__input:not(:disabled):checked ~ .toggle__label .toggle__text::before {
+  opacity: 1;
+  transition: opacity .1s ease-out .3s, width .1s ease-out .5s, height .2s ease-out .3s; }
+
+/*
+=====
+SETTINGS
+=====
+*/
+.toggle {
+  --toggleColor:#315f50;
+  --toggleBackgroundColor: #9b59b6;
+  --toggleSize: 30px; }
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9zY3NzL21haW4uc2NzcyIsIm1haW4uY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQVdBO0VBQ0UsbUJBWm9CO0VBYXBCLGdDQVRnQyxFQUFBO0VBT2xDO0lBS0ksY0Fmb0IsRUFBQTs7QUFtQnhCO0VBQ0UsaUJBQWlCO0VBQ2pCLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsNkJBQTZCLEVBQUE7O0FBRy9CO0VBQ0UsdUJBQXVCO0VBQ3ZCLDZCQUF5QztFQUN6QyxVQUFVO0VBQ1YsdUNBQXVDO0VBQ3ZDLGtCQUFrQjtFQUNsQixtQkFBbUI7RUFDbkIsdUJBQXVCO0VBQ3ZCLGVBQWUsRUFBQTtFQVJqQjtJQVdJLDRDQUEyQyxFQUFBOztBQUkvQztFQUNFLGVBbkNvQixFQUFBOztBQXNDdEI7RUFDRSxlQXRDdUIsRUFBQTs7QUF5Q3pCO0VBQ0UsZ0JBQWdCLEVBQUE7O0FBR2xCO0VBQ0Usb0JBQW9CO0VBQ3BCLHNCQUFzQixFQUFBOztBQUd4QjtFQUNFLDBCQUEwQjtFQUMxQiwyQ0FBMkMsRUFBQTs7QUFHN0M7Ozs7Q0NuQkM7QUR5QkQ7RUFDRSwwQ0FBZTtFQUNmLG9EQUFzQjtFQUN0Qix5Q0FBZ0I7RUFFaEIsMENBQTBDO0VBQzFDLGtCQUFrQjtFQUNsQixhQUFhO0VBQ2IsaUJBQWlCLEVBQUE7O0FBR25CO0VBQ0U7O0dDeEJDO0VEMkJELDBCQUEwQjtFQUMxQiwyQkFBMkI7RUFDM0IsVUFBVTtFQUVWLGtCQUFrQjtFQUNsQixNQUFNO0VBQ04sT0FBTztFQUNQLFNBQVM7RUFDVCxhQUFhLEVBQUE7O0FBR2Y7O0NDMUJDO0FEOEJEO0VBQ0Usb0JBQW9CO0VBQ3BCLCtCQUErQjtFQUMvQixtRUFBbUU7RUFDbkUsbUJBQW1CLEVBQUE7RUFKckI7SUFRSSxlQUFlO0lBQ2YsaUJBQWlCO0lBQ2pCLHFCQUFxQixFQUFBOztBQUl6QjtFQUNFLGVBQWUsRUFBQTs7QUFHakI7RUFDRSxhQUFhO0VBQ2IsZ0JBQWdCO0VBQ2hCLG9DQUFvQyxFQUFBOztBQUd0QztFQUNFLGlCQUFpQjtFQUNqQixtQ0FBbUMsRUFBQTs7QUFHckM7O0NDbENDO0FEc0NEOztFQUVFLFdBQVc7RUFDWCxzQkFBc0I7RUFDdEIsVUFBVTtFQUNWLFdBQVc7RUFDWCw4QkFBOEI7RUFBRSxNQUFBO0VBRWhDLGtCQUFrQjtFQUNsQixPQUFPO0VBQ1AsTUFBTSxFQUFBOztBQUdSO0VBQ0UsNkRBQTZEO0VBQzdELFVBQVUsRUFBQTs7QUFHWjtFQUNFLHNDQUFzQztFQUN0QyxVQUFVLEVBQUE7O0FBR1o7RUFDRSxVQUFVLEVBQUE7O0FBR1o7RUFDRSxnQkFBZ0I7RUFDaEIsbUJBQW1CLEVBQUE7O0FBR3JCOzs7O0NDdENDO0FENENEO0VBQ0UsV0FBVztFQUNYLFFBQVE7RUFDUixTQUFTO0VBQ1QsOEJBQThCO0VBQUUsTUFBQTtFQUVoQyxvQkFBb0I7RUFDcEIsc0JBQXNCO0VBQ3RCLHdCQUF3QjtFQUN4QiwwQkFBMEI7RUFDMUIsMkNBQTJDO0VBRTNDLGtCQUFrQjtFQUNsQixZQUFZO0VBQ1osV0FBVztFQUNYLFVBQVU7RUFFViwwQkFBMEI7RUFDMUIscUNBQXFDLEVBQUE7O0FBR3ZDO0VBQ0Usa0RBQXFCO0VBRXJCLFdBQVc7RUFDWCxZQUFZO0VBQ1osNENBQTRDO0VBQzVDLDhDQUE4QyxFQUFBOztBQUdoRDs7Q0M5Q0M7QURrREQsbUJBQUE7QUFFQTtFQUNFLDJDQUEwQztFQUMxQyxnREFBZ0QsRUFBQTs7QUFHbEQ7Ozs7Q0MvQ0M7QURxREQ7O0NDbERDO0FEc0REOztFQUVFLDZDQUE2QyxFQUFBOztBQUcvQzs7Q0NwREM7QUR3REQ7O0VBRUUsVUFBVTtFQUNWLCtCQUErQjtFQUMvQixzQkFBc0I7RUFDdEIsa0NBQWtDLEVBQUE7O0FBR3BDO0VBQ0Usd0JBQXdCO0VBQ3hCLHFCQUFxQixFQUFBOztBQUd2QjtFQUNFLHlCQUF5QixFQUFBOztBQUczQjtFQUNFLDBCQUEwQjtFQUMxQixvQkFBb0IsRUFBQTs7QUFHdEI7RUFDRSx3QkFBd0I7RUFDeEIscUJBQXFCLEVBQUE7O0FBR3ZCO0VBQ0UsVUFBVSxFQUFBOztBQUdaO0VBQ0UsVUFBVTtFQUNWLHFGQUFxRixFQUFBOztBQUd2Rjs7OztDQzFEQztBRGdFRDtFQUNFLHFCQUFjO0VBQ2QsZ0NBQXdCO0VBQ3hCLGtCQUFhLEVBQUEiLCJmaWxlIjoibWFpbi5jc3MifQ== */
