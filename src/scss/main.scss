@@ -31,8 +31,8 @@ body {
   opacity: 1;
   transition: box-shadow .2s, opacity .4s;
   border-radius: 5px; 
-  margin-bottom: 20px;
-  padding: 25px 30px 10px;
+  margin-bottom: 15px;
+  padding: 20px 25px 5px;
   cursor: pointer;
 
   &:hover {
@@ -42,6 +42,9 @@ body {
 
 .title {
   font-size: $font-size-title;
+  & > .subtitle {
+    color: #6c757d;
+  }
 }
 
 .subtitle {
@@ -49,7 +52,7 @@ body {
 }
 
 .question {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .questions-container {
@@ -117,19 +120,23 @@ CORE STYLES
 }
 
 .input-expand {
-  max-height: 0;
-  overflow: hidden;
+  //max-height: 0;
+  //overflow: hidden;
   transition: max-height 0.5s ease-out;
 }
 
-.toggle__input:checked ~ .input-expand {
-  max-height: 500px;
-  transition: max-height 0.5s ease-in;
-}
+// .toggle__input:checked ~ .input-expand {
+//   max-height: 500px;
+//   transition: max-height 0.5s ease-in;
+// }
 
 /*
 1. Ems helps to calculate size of the checkbox
 */
+
+.page__toggle > .toggle {
+  width: 100%;
+}
 
 .toggle__label::before, 
 .toggle__label::after {
@@ -274,5 +281,5 @@ SETTINGS
 .toggle {
   --toggleColor:#315f50;
   --toggleBackgroundColor: #9b59b6;
-  --toggleSize: 30px;
+  --toggleSize: 25px;
 }
