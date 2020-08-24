@@ -1,13 +1,14 @@
-var animSpeed = 200;
+var animSpeed = 300;
+var animEffect = "swing";
 
 $(document).ready(function() {
     $(".step-toggle").on("change", function(event) {
         var $this = $(this);
         var $step = $this.parents(".page__toggle").find(".input-expand");
         if ($this.prop("checked")) {
-            $step.slideDown(300, "swing");
+            $step.slideDown(animSpeed, animEffect);
         } else {
-            $step.slideUp(300, "swing");
+            $step.slideUp(animSpeed, animEffect);
         }
     });
 
@@ -17,8 +18,8 @@ $(document).ready(function() {
         var $currQ = $this.parents(".question");
         var $prevQ = $currQ.prev();
 
-        // Handle the case when the current question is on the next step
         if ($prevQ.length == 0) {
+            // Handle the case when the current question is on the next step
             $prevQ = $currQ.parents(".step").prev().find(".question").last();
         }
 
@@ -32,25 +33,29 @@ $(document).ready(function() {
         }
     });
 
-    // $("button[name='next']").on("click", function(event) {
-    //     var $step = $(this).parents(".step");
-    //     var $stepBody = $step.find(".body");
-    //     $stepBody.slideUp(animSpeed, "swing");
+    $("input[type='radio'][name='differentOrUnified']").on("change", function(event) {
+        var $this = $(this);
+        var $displayCountries = $this.parents(".questions-container").find(".differentOrUnified-countries");
+        var $allCountriesFromQ = $(".step .question-countries, .step .copy-previous-countries");
 
-    //     var $nextStep = $step.next(".step");
-    //     if ($nextStep.length) {
-    //         $nextStep.find(".body").slideDown(animSpeed, "swing");
-    //     }
-    // });
-    // $(".step-heading").on("click", function(event) {
-    //     var $step = $(this).parents(".step");
-    //     var $stepBody = $step.find(".body");
-    //     $stepBody.slideToggle(animSpeed, "swing");
-    // });
+        if ($this.val() == "differentChanges") {
+            $displayCountries.slideUp(animSpeed, animEffect);
+            $allCountriesFromQ.removeClass("d-none").addClass("d-flex");
+        } else {
+            $displayCountries.slideDown(animSpeed, animEffect);
+            $allCountriesFromQ.addClass("d-none").removeClass("d-flex");
+        }
+
+        $(".hide-when-individual").toggleClass("d-none", $this.val() == "differentChanges");
+        $(".hide-when-unified").toggleClass("d-none", $this.val() != "differentChanges");
+    });
 
     $(".copy-all-results").on("click", function() {
         copyHTML($("#output")[0]);
     });
+
+    $("input[type='radio'][name='differentOrUnified']").first().trigger("change");
+    $(".step-toggle").trigger("change");
 });
 
 /**
