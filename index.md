@@ -21,7 +21,7 @@
 
 <body>
     <div>
-        <div class="container my-5">
+        <div class="container my-4">
             <div class="row">
                 <div class="col-12 heading text-center accordion-item">
                     <h2>Release management checklist</h2>
@@ -30,45 +30,114 @@
             </div>
             <div class="row">
                 <div class="col-12 p-0">
-                    <div class="stepper my-5">
-                        <!--  Start Step 1  -->
+                    <div class="stepper my-4">
+                        <!-- Step 1 START  -->
                         <div class="step">
                             <div class="step-heading">
                                 <div class="page__toggle">
                                     <label class="toggle">
-                                        <input class="toggle__input" name="content" type="checkbox">
+                                        <input class="toggle__input step-toggle" name="content" type="checkbox" checked>
                                         <span class="toggle__label title">
                                             <span class="toggle__text">1. Content</span>
-                                            <p class="subtitle">Were there any changes made in the Content that need to be pushed into PRODUCTION?</p>
+                                            <p class="subtitle mt-3">Were there any changes made in the Content that need to be pushed into PRODUCTION?</p>
                                         </span>
-                                        <div class="input-expand">
-                                            <div class="questions-container">
-                                                <div class="question">
-                                                    <p class="question-title subtitle">
-                                                        Country
-                                                    </p>
-                                                    <div class="question-body">
-                                                        <div class="page__toggle">
+                                    </label>
+                                    <div class="input-expand">
+                                        <div class="questions-container">
+                                            <div class="question">
+                                                <p class="question-title subtitle mt-3">
+                                                    Page Designer changes, Content Assets or Content Images?
+                                                </p>
+                                                <!-- Countries START -->
+                                                <div class="question-body d-flex">
+                                                    <div class="page__toggle mr-4">
+                                                        <label class="toggle">
+                                                            <input class="toggle__input country-select" name="content" type="checkbox">
+                                                            <span class="toggle__label">
+                                                                <img class="flag-image mr-2" src="https://cdn.britannica.com/69/5869-050-6DD75C6F/Flag-Argentina.jpg" width="30"/>
+                                                                <span class="toggle__text">Argentina</span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="page__toggle mr-4">
+                                                        <label class="toggle">
+                                                            <input class="toggle__input country-select" name="content" type="checkbox">
+                                                            <span class="toggle__label">
+                                                                <img class="flag-image mr-2" src="https://cdn.britannica.com/85/7485-004-00B07230/Flag-Chile.jpg" width="30"/>
+                                                                <span class="toggle__text">Chile</span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="page__toggle mr-4">
+                                                        <label class="toggle">
+                                                            <input class="toggle__input country-select" name="content" type="checkbox">
+                                                            <span class="toggle__label">
+                                                                <img class="flag-image mr-2" src="https://cdn.britannica.com/68/7668-004-08492AB7/Flag-Colombia.jpg" width="30"/>
+                                                                <span class="toggle__text">
+                                                                    Colombia
+                                                                </span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="page__toggle mr-4">
+                                                        <label class="toggle">
+                                                            <input class="toggle__input country-select" name="content" type="checkbox">
+                                                            <span class="toggle__label">
+                                                                <img class="flag-image mr-2" src="https://i.pinimg.com/originals/d0/cd/3c/d0cd3cc0cd63d20dd42edb7395948e4f.jpg" width="30"/>
+                                                                <span class="toggle__text">Peru</span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="page__toggle mr-4">
+                                                        <label class="toggle">
+                                                            <input class="toggle__input country-select" name="content" type="checkbox">
+                                                            <span class="toggle__label">
+                                                                <img class="flag-image mr-2" src="https://cdn.britannica.com/s:1500x700,q:85/30/5130-004-5482F4CA/Flag-Puerto-Rico.jpg" width="30"/>
+                                                                <span class="toggle__text">Puerto Rico</span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="page__toggle mr-4">
+                                                        <label class="toggle">
+                                                            <input class="toggle__input country-select" name="content" type="checkbox">
+                                                            <span class="toggle__label">
+                                                                <img class="flag-image mr-2" src="https://cdn.britannica.com/47/6847-050-075C3C65/Flag-Brazil.jpg" width="30"/>
+                                                                <span class="toggle__text">Brasil</span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <!-- Countries END -->
+                                            </div>
+                                            <!-- Question START -->
+                                            <div class="question">
+                                                <p class="question-title subtitle mt-3">
+                                                    Content Slots or schedules for the slots?
+                                                </p>
+                                                <div class="question-body">
+                                                    <!-- Countries START -->
+                                                    <div class="question-body d-flex">
+                                                        <div class="page__toggle mr-4">
                                                             <label class="toggle">
-                                                                <input class="toggle__input" name="content" type="checkbox">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
                                                                 <span class="toggle__label">
                                                                     <img class="flag-image mr-2" src="https://cdn.britannica.com/69/5869-050-6DD75C6F/Flag-Argentina.jpg" width="30"/>
                                                                     <span class="toggle__text">Argentina</span>
                                                                 </span>
                                                             </label>
                                                         </div>
-                                                        <div class="page__toggle">
+                                                        <div class="page__toggle mr-4">
                                                             <label class="toggle">
-                                                                <input class="toggle__input" name="content" type="checkbox">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
                                                                 <span class="toggle__label">
                                                                     <img class="flag-image mr-2" src="https://cdn.britannica.com/85/7485-004-00B07230/Flag-Chile.jpg" width="30"/>
                                                                     <span class="toggle__text">Chile</span>
                                                                 </span>
                                                             </label>
                                                         </div>
-                                                        <div class="page__toggle">
+                                                        <div class="page__toggle mr-4">
                                                             <label class="toggle">
-                                                                <input class="toggle__input" name="content" type="checkbox">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
                                                                 <span class="toggle__label">
                                                                     <img class="flag-image mr-2" src="https://cdn.britannica.com/68/7668-004-08492AB7/Flag-Colombia.jpg" width="30"/>
                                                                     <span class="toggle__text">
@@ -77,27 +146,27 @@
                                                                 </span>
                                                             </label>
                                                         </div>
-                                                        <div class="page__toggle">
+                                                        <div class="page__toggle mr-4">
                                                             <label class="toggle">
-                                                                <input class="toggle__input" name="content" type="checkbox">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
                                                                 <span class="toggle__label">
                                                                     <img class="flag-image mr-2" src="https://i.pinimg.com/originals/d0/cd/3c/d0cd3cc0cd63d20dd42edb7395948e4f.jpg" width="30"/>
                                                                     <span class="toggle__text">Peru</span>
                                                                 </span>
                                                             </label>
                                                         </div>
-                                                        <div class="page__toggle">
+                                                        <div class="page__toggle mr-4">
                                                             <label class="toggle">
-                                                                <input class="toggle__input" name="content" type="checkbox">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
                                                                 <span class="toggle__label">
                                                                     <img class="flag-image mr-2" src="https://cdn.britannica.com/s:1500x700,q:85/30/5130-004-5482F4CA/Flag-Puerto-Rico.jpg" width="30"/>
                                                                     <span class="toggle__text">Puerto Rico</span>
                                                                 </span>
                                                             </label>
                                                         </div>
-                                                        <div class="page__toggle">
+                                                        <div class="page__toggle mr-4">
                                                             <label class="toggle">
-                                                                <input class="toggle__input" name="content" type="checkbox">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
                                                                 <span class="toggle__label">
                                                                     <img class="flag-image mr-2" src="https://cdn.britannica.com/47/6847-050-075C3C65/Flag-Brazil.jpg" width="30"/>
                                                                     <span class="toggle__text">Brasil</span>
@@ -105,73 +174,130 @@
                                                             </label>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="question">
-                                                    <p class="question-title subtitle">
-                                                        Type of content that has been changed
-                                                    </p>
-                                                    <div class="question-body">
-                                                        <div class="page__toggle">
-                                                            <label class="toggle">
-                                                                <input class="toggle__input" name="content" type="checkbox">
-                                                                <span class="toggle__label">
-                                                                    <span class="toggle__text">Content slots</span>
-                                                                </span>
-                                                            </label>
-                                                        </div>
-                                                        <div class="page__toggle">
-                                                            <label class="toggle">
-                                                                <input class="toggle__input" name="content" type="checkbox">
-                                                                <span class="toggle__label">
-                                                                    <span class="toggle__text">Content assets/ Page designer components</span>
-                                                                </span>
-                                                            </label>
-                                                        </div>
+                                                    <!-- Countries END -->
+                                                    <div class="page__toggle mt-2">
+                                                        &#128203;  <a href="#" class="copy-from-above font-italic">Same countries as the last item?</a>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- Question END -->
                                         </div>
-                                    </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- Step 1 END-->
+
+                        <!-- Step 2 START  -->
                         <div class="step">
                             <div class="step-heading">
                                 <div class="page__toggle">
                                     <label class="toggle">
-                                        <input class="toggle__input" name="content" type="checkbox">
+                                        <input class="toggle__input step-toggle" name="content" type="checkbox" checked>
                                         <span class="toggle__label title">
                                             <span class="toggle__text">2. Promotions and campaigns</span>
-                                            <p class="subtitle">Were there any changes made in Promo need to be pushed into PRODUCTION?</p>
+                                            <p class="subtitle mt-3">Were there any updates made for Promotions or Campaigns that need to be pushed into PRODUCTION?</p>
                                         </span>
-                                        <div class="input-expand">
-                                            <div class="questions-container">
-                                                <div class="question">
-                                                    <p class="question-title subtitle">
-                                                        Country
-                                                    </p>
-                                                    <div class="question-body">
-                                                        <div class="page__toggle">
+                                    </label>
+                                    <div class="input-expand">
+                                        <div class="questions-container">
+                                            <div class="question">
+                                                <p class="question-title subtitle mt-3">
+                                                    Promotion AND Campaigns configurations?
+                                                </p>
+                                                <!-- Countries START -->
+                                                <div class="question-body d-flex">
+                                                    <div class="page__toggle mr-4">
+                                                        <label class="toggle">
+                                                            <input class="toggle__input country-select" name="content" type="checkbox">
+                                                            <span class="toggle__label">
+                                                                <img class="flag-image mr-2" src="https://cdn.britannica.com/69/5869-050-6DD75C6F/Flag-Argentina.jpg" width="30"/>
+                                                                <span class="toggle__text">Argentina</span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="page__toggle mr-4">
+                                                        <label class="toggle">
+                                                            <input class="toggle__input country-select" name="content" type="checkbox">
+                                                            <span class="toggle__label">
+                                                                <img class="flag-image mr-2" src="https://cdn.britannica.com/85/7485-004-00B07230/Flag-Chile.jpg" width="30"/>
+                                                                <span class="toggle__text">Chile</span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="page__toggle mr-4">
+                                                        <label class="toggle">
+                                                            <input class="toggle__input country-select" name="content" type="checkbox">
+                                                            <span class="toggle__label">
+                                                                <img class="flag-image mr-2" src="https://cdn.britannica.com/68/7668-004-08492AB7/Flag-Colombia.jpg" width="30"/>
+                                                                <span class="toggle__text">
+                                                                    Colombia
+                                                                </span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="page__toggle mr-4">
+                                                        <label class="toggle">
+                                                            <input class="toggle__input country-select" name="content" type="checkbox">
+                                                            <span class="toggle__label">
+                                                                <img class="flag-image mr-2" src="https://i.pinimg.com/originals/d0/cd/3c/d0cd3cc0cd63d20dd42edb7395948e4f.jpg" width="30"/>
+                                                                <span class="toggle__text">Peru</span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="page__toggle mr-4">
+                                                        <label class="toggle">
+                                                            <input class="toggle__input country-select" name="content" type="checkbox">
+                                                            <span class="toggle__label">
+                                                                <img class="flag-image mr-2" src="https://cdn.britannica.com/s:1500x700,q:85/30/5130-004-5482F4CA/Flag-Puerto-Rico.jpg" width="30"/>
+                                                                <span class="toggle__text">Puerto Rico</span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="page__toggle mr-4">
+                                                        <label class="toggle">
+                                                            <input class="toggle__input country-select" name="content" type="checkbox">
+                                                            <span class="toggle__label">
+                                                                <img class="flag-image mr-2" src="https://cdn.britannica.com/47/6847-050-075C3C65/Flag-Brazil.jpg" width="30"/>
+                                                                <span class="toggle__text">Brasil</span>
+                                                            </span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <!-- Countries END -->
+                                                <div class="page__toggle mt-2">
+                                                    &#128203;  <a href="#" class="copy-from-above font-italic">Same countries as the last item?</a>
+                                                </div>
+                                            </div>
+                                            <!-- Question START -->
+                                            <div class="question">
+                                                <p class="question-title subtitle mt-3">
+                                                    Any Coupon Codes?
+                                                </p>
+                                                <div class="question-body">
+                                                    <!-- Countries START -->
+                                                    <div class="question-body d-flex">
+                                                        <div class="page__toggle mr-4">
                                                             <label class="toggle">
-                                                                <input class="toggle__input" name="content" type="checkbox">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
                                                                 <span class="toggle__label">
                                                                     <img class="flag-image mr-2" src="https://cdn.britannica.com/69/5869-050-6DD75C6F/Flag-Argentina.jpg" width="30"/>
                                                                     <span class="toggle__text">Argentina</span>
                                                                 </span>
                                                             </label>
                                                         </div>
-                                                        <div class="page__toggle">
+                                                        <div class="page__toggle mr-4">
                                                             <label class="toggle">
-                                                                <input class="toggle__input" name="content" type="checkbox">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
                                                                 <span class="toggle__label">
                                                                     <img class="flag-image mr-2" src="https://cdn.britannica.com/85/7485-004-00B07230/Flag-Chile.jpg" width="30"/>
                                                                     <span class="toggle__text">Chile</span>
                                                                 </span>
                                                             </label>
                                                         </div>
-                                                        <div class="page__toggle">
+                                                        <div class="page__toggle mr-4">
                                                             <label class="toggle">
-                                                                <input class="toggle__input" name="content" type="checkbox">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
                                                                 <span class="toggle__label">
                                                                     <img class="flag-image mr-2" src="https://cdn.britannica.com/68/7668-004-08492AB7/Flag-Colombia.jpg" width="30"/>
                                                                     <span class="toggle__text">
@@ -180,27 +306,27 @@
                                                                 </span>
                                                             </label>
                                                         </div>
-                                                        <div class="page__toggle">
+                                                        <div class="page__toggle mr-4">
                                                             <label class="toggle">
-                                                                <input class="toggle__input" name="content" type="checkbox">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
                                                                 <span class="toggle__label">
                                                                     <img class="flag-image mr-2" src="https://i.pinimg.com/originals/d0/cd/3c/d0cd3cc0cd63d20dd42edb7395948e4f.jpg" width="30"/>
                                                                     <span class="toggle__text">Peru</span>
                                                                 </span>
                                                             </label>
                                                         </div>
-                                                        <div class="page__toggle">
+                                                        <div class="page__toggle mr-4">
                                                             <label class="toggle">
-                                                                <input class="toggle__input" name="content" type="checkbox">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
                                                                 <span class="toggle__label">
                                                                     <img class="flag-image mr-2" src="https://cdn.britannica.com/s:1500x700,q:85/30/5130-004-5482F4CA/Flag-Puerto-Rico.jpg" width="30"/>
                                                                     <span class="toggle__text">Puerto Rico</span>
                                                                 </span>
                                                             </label>
                                                         </div>
-                                                        <div class="page__toggle">
+                                                        <div class="page__toggle mr-4">
                                                             <label class="toggle">
-                                                                <input class="toggle__input" name="content" type="checkbox">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
                                                                 <span class="toggle__label">
                                                                     <img class="flag-image mr-2" src="https://cdn.britannica.com/47/6847-050-075C3C65/Flag-Brazil.jpg" width="30"/>
                                                                     <span class="toggle__text">Brasil</span>
@@ -208,44 +334,93 @@
                                                             </label>
                                                         </div>
                                                     </div>
+                                                    <!-- Countries END -->
+                                                    <div class="page__toggle mt-2">
+                                                        &#128203;  <a href="#" class="copy-from-above font-italic">Same countries as the last item?</a>
+                                                    </div>
                                                 </div>
-                                                <div class="question">
-                                                    <p class="question-title subtitle">
-                                                        Type of content that has been changed
-                                                    </p>
-                                                    <div class="question-body">
-                                                        <div class="page__toggle">
+                                            </div>
+                                            <!-- Question END -->
+                                            <!-- Question START -->
+                                            <div class="question">
+                                                <p class="question-title subtitle mt-3">
+                                                    Customer groups?
+                                                </p>
+                                                <div class="question-body">
+                                                    <!-- Countries START -->
+                                                    <div class="question-body d-flex">
+                                                        <div class="page__toggle mr-4">
                                                             <label class="toggle">
-                                                                <input class="toggle__input" name="content" type="checkbox">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
                                                                 <span class="toggle__label">
-                                                                    <span class="toggle__text">Promotions</span>
+                                                                    <img class="flag-image mr-2" src="https://cdn.britannica.com/69/5869-050-6DD75C6F/Flag-Argentina.jpg" width="30"/>
+                                                                    <span class="toggle__text">Argentina</span>
                                                                 </span>
                                                             </label>
                                                         </div>
-                                                        <div class="page__toggle">
+                                                        <div class="page__toggle mr-4">
                                                             <label class="toggle">
-                                                                <input class="toggle__input" name="content" type="checkbox">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
                                                                 <span class="toggle__label">
-                                                                    <span class="toggle__text">Campaigns</span>
+                                                                    <img class="flag-image mr-2" src="https://cdn.britannica.com/85/7485-004-00B07230/Flag-Chile.jpg" width="30"/>
+                                                                    <span class="toggle__text">Chile</span>
                                                                 </span>
                                                             </label>
                                                         </div>
-                                                        <div class="page__toggle">
+                                                        <div class="page__toggle mr-4">
                                                             <label class="toggle">
-                                                                <input class="toggle__input" name="content" type="checkbox">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
                                                                 <span class="toggle__label">
-                                                                    <span class="toggle__text">Coupon codes</span>
+                                                                    <img class="flag-image mr-2" src="https://cdn.britannica.com/68/7668-004-08492AB7/Flag-Colombia.jpg" width="30"/>
+                                                                    <span class="toggle__text">
+                                                                        Colombia
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="page__toggle mr-4">
+                                                            <label class="toggle">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
+                                                                <span class="toggle__label">
+                                                                    <img class="flag-image mr-2" src="https://i.pinimg.com/originals/d0/cd/3c/d0cd3cc0cd63d20dd42edb7395948e4f.jpg" width="30"/>
+                                                                    <span class="toggle__text">Peru</span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="page__toggle mr-4">
+                                                            <label class="toggle">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
+                                                                <span class="toggle__label">
+                                                                    <img class="flag-image mr-2" src="https://cdn.britannica.com/s:1500x700,q:85/30/5130-004-5482F4CA/Flag-Puerto-Rico.jpg" width="30"/>
+                                                                    <span class="toggle__text">Puerto Rico</span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="page__toggle mr-4">
+                                                            <label class="toggle">
+                                                                <input class="toggle__input country-select" name="content" type="checkbox">
+                                                                <span class="toggle__label">
+                                                                    <img class="flag-image mr-2" src="https://cdn.britannica.com/47/6847-050-075C3C65/Flag-Brazil.jpg" width="30"/>
+                                                                    <span class="toggle__text">Brasil</span>
                                                                 </span>
                                                             </label>
                                                         </div>
                                                     </div>
+                                                    <!-- Countries END -->
+                                                    <div class="page__toggle mt-2">
+                                                        &#128203;  <a href="#" class="copy-from-above font-italic">Same countries as the last item?</a>
+                                                    </div>
                                                 </div>
                                             </div>
+                                            <!-- Question END -->
                                         </div>
-                                    </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- Step 2 END-->
+
+
                     </div>
                 </div>
             </div>
